@@ -10,8 +10,10 @@ public class FollowTarget : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 5, 10));
+        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 2, 10));
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        transform.LookAt(target);
+        transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z));
 	}
 }

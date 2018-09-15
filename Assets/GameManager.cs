@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
             {
                 Note n = levelSong.Measures[i].Notes[j];
                 n.ConvertNoteTime(i);
-                Debug.Log("Note on measure for starts: " + n.NoteElapsedTime);
+                //Debug.Log("Note on measure for starts: " + n.NoteElapsedTime);
             }
         }
         //Wait for player to press start And then start the song
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
         while (PlayerCurrentGameState == GameStates.WAITING_TO_START)
         {
             yield return null;
+            songStartTime = Time.realtimeSinceStartup;
         }
 
         songStartTime = Time.realtimeSinceStartup;
@@ -66,11 +67,27 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerCurrentGameState = GameStates.PLAYING;
+        }
         if(isPlaying())
         {
+            float time_elapsed = Time.realtimeSinceStartup - songStartTime;
+            for (int i = 0; i < levelSong.Measures.Length; i++)
+            {
+                for (int j = 0; j < levelSong.Measures[i].Notes.Length; j++)
+                {
+                    Note n = levelSong.Measures[i].Notes[j];
+                    if (!n.IsInactive && n.NoteElapsedTime + ((float)n.BeatError * OneTick) < time_elapsed)
+                    {
+                        n.IsInactive = true;
+                        Debug.Log("Note " + n.id + " was played");
+                    }
+                }
+            }
             //Enter Update Note Scoring
             //Enter Update Note Display On Screen
-            Debug.Log("TODO: game started spam logic");
         }
 	}
 

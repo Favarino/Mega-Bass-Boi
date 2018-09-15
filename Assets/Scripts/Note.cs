@@ -13,6 +13,7 @@ public class Note
     public int BeatError;
 
     public float NoteElapsedTime;
+    public bool IsInactive;
 
     public void ConvertNoteTime(int measure)
     {

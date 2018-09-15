@@ -35,9 +35,17 @@ public class NoteManagerScript : MonoBehaviour {
                 NoteUIScript newNote = GameObject.Instantiate<NoteUIScript>(prefabNoteUI, NoteCollectionContainer.transform);
                 newNote.SetNote(n);
                 newNote.transform.localPosition = new Vector3(RevealBarObject.transform.localPosition.x + ((float)i * measureDistance)
-                    + ((float)(n.BeatNumber - 1) * beatDistance) + (float)n.SubBeatNumber * tickDistance, transform.localPosition.y, transform.localPosition.z);  
+                    + ((float)(n.BeatNumber - 1) * beatDistance) + (float)n.SubBeatNumber * tickDistance, DetermineNoteYPosition(newNote), transform.localPosition.z);  
             }
         }
+    }
+
+    float DetermineNoteYPosition(NoteUIScript note)
+    {
+        float noteHeight = note.GetComponent<MeshRenderer>().bounds.size.y;
+        float localY = note.transform.localPosition.y - (noteHeight/2);
+        float y = localY - noteHeight * note.MyNote.id + .5f;//plus an offset
+        return y;
     }
 	
     public void MoveNotes()

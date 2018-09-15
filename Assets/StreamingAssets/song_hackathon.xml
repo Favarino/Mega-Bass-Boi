@@ -8,20 +8,20 @@
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="1">
-					<BeatNumber>2</BeatNumber>
+				<Note id="2">
+					<BeatNumber>1</BeatNumber>
 					<SubBeatNumber>0</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="1">
-					<BeatNumber>2</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
+				<Note id="3">
+					<BeatNumber>1</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="1">
-					<BeatNumber>3</BeatNumber>
+				<Note id="4">
+					<BeatNumber>1</BeatNumber>
 					<SubBeatNumber>0</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			

@@ -8,6 +8,8 @@ public class NoteUIScript : MonoBehaviour {
     Vector3 startPosition;
     Note myNote;
 
+    Tap tap;
+
     public Note MyNote
     {
         get
@@ -38,6 +40,7 @@ public class NoteUIScript : MonoBehaviour {
     void Start () {
         StartPosition = transform.localPosition;
         RegisterNoteColor();
+        Tap.onTapped += OnTapped;
 	}
 	
 	// Update is called once per frame
@@ -84,5 +87,10 @@ public class NoteUIScript : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    void OnTapped(int[] fingers)
+    {
+        Debug.Log("I gots fingers");
     }
 }

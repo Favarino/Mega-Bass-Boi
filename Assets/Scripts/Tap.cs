@@ -17,7 +17,7 @@ using UnityEngine.UI;
 public class Tap : MonoBehaviour {
 	
 	public delegate void OnTapped(int[] fingers);
-	public OnTapped onTapped;
+	public static OnTapped onTapped;
 
 	void Start () {
 

@@ -1,0 +1,116 @@
+<NoteCollection>
+	<Measures>
+		<Measure>
+			<Notes>
+				<Note id="1">
+					<BeatNumber>1</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="1">
+					<BeatNumber>2</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="1">
+					<BeatNumber>3</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="1">
+					<BeatNumber>4</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+			</Notes>
+		</Measure>
+		<Measure>
+			<Notes>
+				<Note id="2">
+					<BeatNumber>1</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="2">
+					<BeatNumber>2</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="2">
+					<BeatNumber>3</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="2">
+					<BeatNumber>4</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+			</Notes>
+		</Measure>
+		<Measure>
+			<Notes>
+				<Note id="3">
+					<BeatNumber>1</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="3">
+					<BeatNumber>2</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="3">
+					<BeatNumber>3</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="3">
+					<BeatNumber>4</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+			</Notes>
+		</Measure>
+		<Measure>
+			<Notes>
+				<Note id="4">
+					<BeatNumber>1</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="4">
+					<BeatNumber>2</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="4">
+					<BeatNumber>3</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="4">
+					<BeatNumber>4</BeatNumber>
+					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+			</Notes>
+		</Measure>
+	</Measures>	
+ </NoteCollection>

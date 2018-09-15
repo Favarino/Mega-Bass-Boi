@@ -15,13 +15,13 @@
 					<BeatError>15</BeatError>			
 				</Note>
 				<Note id="1">
-					<BeatNumber>3</BeatNumber>
-					<SubBeatNumber>0</SubBeatNumber>
+					<BeatNumber>2</BeatNumber>
+					<SubBeatNumber>60</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
 				<Note id="1">
-					<BeatNumber>4</BeatNumber>
+					<BeatNumber>3</BeatNumber>
 					<SubBeatNumber>0</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
@@ -37,8 +37,20 @@
 					<BeatError>15</BeatError>			
 				</Note>
 				<Note id="2">
+					<BeatNumber>1</BeatNumber>
+					<SubBeatNumber>60</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="2">
 					<BeatNumber>2</BeatNumber>
 					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="2">
+					<BeatNumber>2</BeatNumber>
+					<SubBeatNumber>60</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
@@ -49,8 +61,20 @@
 					<BeatError>15</BeatError>			
 				</Note>
 				<Note id="2">
+					<BeatNumber>3</BeatNumber>
+					<SubBeatNumber>60</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="2">
 					<BeatNumber>4</BeatNumber>
 					<SubBeatNumber>0</SubBeatNumber>
+					<BeatDuration>60</BeatDuration>
+					<BeatError>15</BeatError>			
+				</Note>
+				<Note id="2">
+					<BeatNumber>4</BeatNumber>
+					<SubBeatNumber>60</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>

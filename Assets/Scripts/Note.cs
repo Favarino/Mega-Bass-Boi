@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 public class Note
 {
     [XmlAttribute("id")]
-    public string id;
+    public int id;
 
     public int BeatNumber;
     public int SubBeatNumber;

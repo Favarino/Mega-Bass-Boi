@@ -4,12 +4,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public NoteManagerScript NoteManager;
+
     private SongNoteCollection levelSong;
     private float songStartTime;
+
+    private float songElapsedTime;
+
+    [SerializeField] GameObject notePrefab;
 
     public enum GameStates
     {
@@ -28,6 +35,21 @@ public class GameManager : MonoBehaviour {
     public float OneBeat;
     public float OneTick;
 
+    [SerializeField] readonly int measureBuffer = 2;
+
+    public float SongElapsedTime
+    {
+        get
+        {
+            return songElapsedTime;
+        }
+
+        set
+        {
+            songElapsedTime = value;
+        }
+    }
+
     void Awake()
     {
         Instance = this;
@@ -40,15 +62,18 @@ public class GameManager : MonoBehaviour {
 
         levelSong = SongNoteCollection.Load(Path.Combine(Application.dataPath, "StreamingAssets/song_hackathon.xml"));
 
+
         for(int i = 0; i < levelSong.Measures.Length; i++)
         {
             for(int j = 0; j < levelSong.Measures[i].Notes.Length; j++)
             {
                 Note n = levelSong.Measures[i].Notes[j];
                 n.ConvertNoteTime(i);
-                //Debug.Log("Note on measure for starts: " + n.NoteElapsedTime);
             }
         }
+
+        NoteManager.CalculateDistances();
+        NoteManager.PopulateNotes();
         //Wait for player to press start And then start the song
         StartCoroutine(WaitForPlayerStart());
     }
@@ -58,11 +83,13 @@ public class GameManager : MonoBehaviour {
         yield return null;
         while (PlayerCurrentGameState == GameStates.WAITING_TO_START)
         {
-            yield return null;
+            yield return null;  //shorthand for WaitOneFrame
             songStartTime = Time.realtimeSinceStartup;
         }
 
         songStartTime = Time.realtimeSinceStartup;
+
+        NoteManager.MoveNotes();
     }
 	// Update is called once per frame
 	void Update () {
@@ -73,23 +100,80 @@ public class GameManager : MonoBehaviour {
         }
         if(isPlaying())
         {
-            float time_elapsed = Time.realtimeSinceStartup - songStartTime;
+            songElapsedTime = Time.realtimeSinceStartup - songStartTime;
+            NoteManager.MoveNotes();
             for (int i = 0; i < levelSong.Measures.Length; i++)
             {
                 for (int j = 0; j < levelSong.Measures[i].Notes.Length; j++)
                 {
                     Note n = levelSong.Measures[i].Notes[j];
-                    if (!n.IsInactive && n.NoteElapsedTime + ((float)n.BeatError * OneTick) < time_elapsed)
+
+                    if (!n.IsInactive && n.NoteElapsedTime + (8f * OneBeat) +((float)n.BeatError * OneTick) < songElapsedTime)
                     {
                         n.IsInactive = true;
-                        Debug.Log("Note " + n.id + " was played");
+                        Debug.Log("Note " + n.id + " of mesasure " + i + " was played");
                     }
                 }
             }
-            //Enter Update Note Scoring
-            //Enter Update Note Display On Screen
+                    //Enter Update Note Scoring
+                    //Enter Update Note Display On Screen
         }
 	}
+    public SongNoteCollection GetSong()
+    {
+        return levelSong;
+    }
+    GameObject CreateNote(Note n)
+    {
+        int val = ParseId(n);
+        GameObject note = Instantiate(notePrefab);
+
+        RegisterNoteValuesToObject(n, note);
+
+        Material noteMat = note.GetComponent<Material>();
+        switch (val)
+        {
+            case 1:
+                noteMat.color = Color.red;
+                break;
+            case 2:
+                noteMat.color = Color.yellow;
+                break;
+            case 3:
+                noteMat.color = Color.green;
+                break;
+            case 4:
+                noteMat.color = Color.blue;
+                break;
+            default:
+                break;
+        }
+
+        return note;
+    }
+
+    void RegisterNoteValuesToObject(Note n, GameObject obj)
+    {
+        Note noteCom = obj.GetComponent<Note>();
+        noteCom.id = n.id;
+        noteCom.IsInactive = n.IsInactive;
+        noteCom.NoteElapsedTime = n.NoteElapsedTime;
+        noteCom.SubBeatNumber = n.SubBeatNumber;
+        noteCom.BeatDuration = n.BeatDuration;
+        noteCom.BeatError = n.BeatError;
+        noteCom.BeatNumber = n.BeatNumber;
+    }
+
+    int ParseId(Note n)
+    {
+        int val;
+        if (!Int32.TryParse(n.id, out val))
+        {
+            print("parse failed");
+            val = -1;
+        }
+        return val;
+    }
 
     bool isPlaying()
     {

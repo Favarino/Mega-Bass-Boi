@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour {
 
     private float songElapsedTime;
 
-    [SerializeField] GameObject notePrefab;
-
     public enum GameStates
     {
         WAITING_TO_START,
@@ -34,8 +32,6 @@ public class GameManager : MonoBehaviour {
     public int BPM = 120;
     public float OneBeat;
     public float OneTick;
-
-    [SerializeField] readonly int measureBuffer = 2;
 
     public float SongElapsedTime
     {
@@ -122,57 +118,6 @@ public class GameManager : MonoBehaviour {
     public SongNoteCollection GetSong()
     {
         return levelSong;
-    }
-    GameObject CreateNote(Note n)
-    {
-        int val = ParseId(n);
-        GameObject note = Instantiate(notePrefab);
-
-        RegisterNoteValuesToObject(n, note);
-
-        Material noteMat = note.GetComponent<Material>();
-        switch (val)
-        {
-            case 1:
-                noteMat.color = Color.red;
-                break;
-            case 2:
-                noteMat.color = Color.yellow;
-                break;
-            case 3:
-                noteMat.color = Color.green;
-                break;
-            case 4:
-                noteMat.color = Color.blue;
-                break;
-            default:
-                break;
-        }
-
-        return note;
-    }
-
-    void RegisterNoteValuesToObject(Note n, GameObject obj)
-    {
-        Note noteCom = obj.GetComponent<Note>();
-        noteCom.id = n.id;
-        noteCom.IsInactive = n.IsInactive;
-        noteCom.NoteElapsedTime = n.NoteElapsedTime;
-        noteCom.SubBeatNumber = n.SubBeatNumber;
-        noteCom.BeatDuration = n.BeatDuration;
-        noteCom.BeatError = n.BeatError;
-        noteCom.BeatNumber = n.BeatNumber;
-    }
-
-    int ParseId(Note n)
-    {
-        int val;
-        if (!Int32.TryParse(n.id, out val))
-        {
-            print("parse failed");
-            val = -1;
-        }
-        return val;
     }
 
     bool isPlaying()

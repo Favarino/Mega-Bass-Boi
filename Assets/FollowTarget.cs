@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[ExecuteInEditMode]
 public class FollowTarget : MonoBehaviour {
     [SerializeField] Transform target;
     [SerializeField] float smoothTime = 0.3f;
@@ -17,6 +16,6 @@ public class FollowTarget : MonoBehaviour {
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         transform.LookAt(target);
-        transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z));
+        transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z+90));
 	}
 }

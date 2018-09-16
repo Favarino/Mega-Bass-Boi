@@ -1794,12 +1794,6 @@
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="1">
-					<BeatNumber>1</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
                 <Note id="1">
 					<BeatNumber>1</BeatNumber>
 					<SubBeatNumber>90</SubBeatNumber>
@@ -1818,12 +1812,6 @@
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="1">
-					<BeatNumber>2</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
                 <Note id="1">
 					<BeatNumber>2</BeatNumber>
 					<SubBeatNumber>90</SubBeatNumber>
@@ -1842,12 +1830,6 @@
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="1">
-					<BeatNumber>3</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
                 <Note id="1">
 					<BeatNumber>3</BeatNumber>
 					<SubBeatNumber>90</SubBeatNumber>
@@ -1863,12 +1845,6 @@
 				<Note id="1">
 					<BeatNumber>4</BeatNumber>
 					<SubBeatNumber>30</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
-				<Note id="1">
-					<BeatNumber>4</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
@@ -1894,12 +1870,6 @@
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="3">
-					<BeatNumber>1</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
                 <Note id="3">
 					<BeatNumber>1</BeatNumber>
 					<SubBeatNumber>90</SubBeatNumber>
@@ -1918,12 +1888,6 @@
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="3">
-					<BeatNumber>2</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
                 <Note id="3">
 					<BeatNumber>2</BeatNumber>
 					<SubBeatNumber>90</SubBeatNumber>
@@ -1942,12 +1906,6 @@
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>
-				<Note id="4">
-					<BeatNumber>3</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
                 <Note id="4">
 					<BeatNumber>3</BeatNumber>
 					<SubBeatNumber>90</SubBeatNumber>
@@ -1963,12 +1921,6 @@
 				<Note id="4">
 					<BeatNumber>4</BeatNumber>
 					<SubBeatNumber>30</SubBeatNumber>
-					<BeatDuration>60</BeatDuration>
-					<BeatError>15</BeatError>			
-				</Note>
-				<Note id="4">
-					<BeatNumber>4</BeatNumber>
-					<SubBeatNumber>60</SubBeatNumber>
 					<BeatDuration>60</BeatDuration>
 					<BeatError>15</BeatError>			
 				</Note>

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     private SongNoteCollection levelSong;
     private float songStartTime;
 
-    private float songElapsedTime;
+    public float songElapsedTime;
 
     public enum GameStates
     {
@@ -45,8 +45,7 @@ public class GameManager : MonoBehaviour {
 
     public float SongElapsedTime
     {
-        get
-        {
+        get {
             return songElapsedTime;
         }
 
@@ -91,6 +90,9 @@ public class GameManager : MonoBehaviour {
         NoteManager.PopulateNotes();
         //Wait for player to press start And then start the song
         StartCoroutine(WaitForPlayerStart());
+
+        // Subscripe to Pose Hit
+        Poses.PoseHit += poseHit;
     }
 	
     IEnumerator WaitForPlayerStart()
@@ -170,5 +172,9 @@ public class GameManager : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    public void poseHit() {
+        Debug.Log("Hit Pose");
     }
 }

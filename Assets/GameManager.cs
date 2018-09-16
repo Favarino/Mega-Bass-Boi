@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour {
                     if (!n.IsInactive && n.NoteElapsedTime + (8f * OneBeat) +((float)n.BeatError * OneTick) < songElapsedTime)
                     {
                         n.IsInactive = true;
-                        Debug.Log("Note " + n.id + " of mesasure " + i + " was played");
+                        //Debug.Log("Note " + n.id + " of mesasure " + i + " was played");
                     }
                 }
             }

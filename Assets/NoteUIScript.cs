@@ -10,6 +10,10 @@ public class NoteUIScript : MonoBehaviour {
 
     Tap tap;
 
+    float errorThresholdTime;
+    float positiveErrorThresh;
+    float negativeErrorThresh;
+
     public Note MyNote
     {
         get
@@ -41,12 +45,37 @@ public class NoteUIScript : MonoBehaviour {
         StartPosition = transform.localPosition;
         RegisterNoteColor();
         Tap.onTapped += OnTapped;
-	}
+
+        errorThresholdTime = myNote.BeatError * GameManager.Instance.OneTick;
+        positiveErrorThresh = (myNote.NoteElapsedTime) + errorThresholdTime;
+        negativeErrorThresh = (myNote.NoteElapsedTime) - errorThresholdTime;
+        //print(errorThresholdTime);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        //Used to visualize error threshold of notes
+
+        //if (!myNote.IsInactive &&
+        //    GameManager.Instance.SongElapsedTime > negativeErrorThresh
+        //    && GameManager.Instance.SongElapsedTime< positiveErrorThresh)
+        //{
+        //    Material[] mats = GetComponent<MeshRenderer>().materials;
+        //    for (int i = 0; i < mats.Length; i++)
+        //    {
+        //        mats[i].color = Color.white;
+        //    }
+        //}
+        //else
+        //{
+        //    Material[] mats = GetComponent<MeshRenderer>().materials;
+        //    for (int i = 0; i < mats.Length; i++)
+        //    {
+        //        mats[i].color = Color.black;
+        //    }
+        //}
+
+    }
 
     
     public void SetNote(Note n)
@@ -91,6 +120,21 @@ public class NoteUIScript : MonoBehaviour {
 
     void OnTapped(int[] fingers)
     {
-        Debug.Log("I gots fingers");
+        if (!myNote.IsInactive &&
+            GameManager.Instance.SongElapsedTime > negativeErrorThresh
+            && GameManager.Instance.SongElapsedTime < positiveErrorThresh)
+        {
+            if (fingers[myNote.id] == 1)
+            {
+                OnTappedTheatrics();
+            }
+        }
+    }
+
+    //Spawn Particles and such
+    void OnTappedTheatrics()
+    {
+        if (transform.gameObject != null)
+            transform.gameObject.SetActive(false);
     }
 }

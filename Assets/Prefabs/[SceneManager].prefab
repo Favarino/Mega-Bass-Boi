@@ -68,3 +68,6 @@ MonoBehaviour:
   BPM: 120
   OneBeat: 0
   OneTick: 0
+  score: 0
+  scoreMultiplier: 1
+  currentStreak: 0

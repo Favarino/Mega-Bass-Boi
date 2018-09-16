@@ -112,6 +112,10 @@ public class GameManager : MonoBehaviour {
                     if (!n.IsInactive && n.NoteElapsedTime + (8f * OneBeat) +((float)n.BeatError * OneTick) < songElapsedTime)
                     {
                         n.IsInactive = true;
+                        if(!n.hasBeenHit)
+                        {
+                            currentStreak = 0;
+                        }
                     }
                 }
             }

@@ -75,11 +75,6 @@ public class NoteUIScript : MonoBehaviour {
         //    }
         //}
 
-        if (myNote.IsInactive && gameObject.activeInHierarchy)
-        {
-            GameManager.Instance.currentStreak = 0;
-            //print("Current Streak " + GameManager.Instance.currentStreak);
-        }
     }
 
     
@@ -139,6 +134,7 @@ public class NoteUIScript : MonoBehaviour {
     //Spawn Particles and such
     void OnTappedTheatrics()
     {
+        MyNote.hasBeenHit = true;
         GameManager.Instance.score += 10*GameManager.Instance.scoreMultiplier;
         GameManager.Instance.currentStreak++;
         GameManager.Instance.CheckForNewCombo();

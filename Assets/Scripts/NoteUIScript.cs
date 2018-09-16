@@ -14,6 +14,8 @@ public class NoteUIScript : MonoBehaviour {
     float positiveErrorThresh;
     float negativeErrorThresh;
 
+    public ParticleSystem particle;
+
     public Note MyNote
     {
         get
@@ -47,8 +49,8 @@ public class NoteUIScript : MonoBehaviour {
         Tap.onTapped += OnTapped;
 
         errorThresholdTime = myNote.BeatError * GameManager.Instance.OneTick;
-        positiveErrorThresh = (myNote.NoteElapsedTime) + errorThresholdTime;
-        negativeErrorThresh = (myNote.NoteElapsedTime) - errorThresholdTime;
+        positiveErrorThresh = (myNote.NoteElapsedTime) + (errorThresholdTime*2);
+        negativeErrorThresh = (myNote.NoteElapsedTime) - (errorThresholdTime*2);
         //print(errorThresholdTime);
     }
 	
@@ -137,8 +139,10 @@ public class NoteUIScript : MonoBehaviour {
     //Spawn Particles and such
     void OnTappedTheatrics()
     {
+        print("gotnote");
         MyNote.hasBeenHit = true;
-        GameManager.Instance.score += 10*GameManager.Instance.scoreMultiplier;
+        Instantiate(particle, transform.position, Quaternion.identity);
+        GameManager.Instance.SetScore( 10*GameManager.Instance.scoreMultiplier);
         GameManager.Instance.currentStreak++;
         GameManager.Instance.CheckForNewCombo();
         if (transform.gameObject != null)

@@ -7,6 +7,7 @@ using System.IO;
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] TextMeshProUGUI scoreText;
 
+    string songPath = "StreamingAssets/song_hackathon_medium.xml";
+
     public float SongElapsedTime
     {
         get {
@@ -55,26 +58,14 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void SetScore(int value)
+    public void SetPath(string path)
     {
-        score = value;
-        scoreText.text = "Score:" + score;
-    }
+        songPath = path;
 
-    void Awake()
-    {
-        Instance = this;
-        PlayerCurrentGameState = GameStates.WAITING_TO_START;
-    }
-	// Use this for initialization
-	void Start () {
-        OneBeat = 1f / ((float)BPM / 60f);
-        OneTick = OneBeat / 120f; // there are 120 ticks in a beat (arbitrary but chosen for optimal resolution in  4/4 time)
-
-        levelSong = SongNoteCollection.Load(Path.Combine(Application.dataPath, "StreamingAssets/song_hackathon_hard.xml"));
+        levelSong = SongNoteCollection.Load(Path.Combine(Application.dataPath, songPath));
 
 
-        for(int i = 0; i < levelSong.Measures.Length; i++)
+        for (int i = 0; i < levelSong.Measures.Length; i++)
         {
             if (levelSong.Measures[i].Notes != null)
             {
@@ -88,6 +79,38 @@ public class GameManager : MonoBehaviour {
 
         NoteManager.CalculateDistances();
         NoteManager.PopulateNotes();
+    }
+
+    public void SetScore(int value)
+    {
+        score = score+=value;
+        scoreText.text = "Score:" + score;
+    }
+
+    void Awake() { 
+        PlayerCurrentGameState = GameStates.WAITING_TO_START;
+
+        //Check if instance already exists
+        if (Instance == null)
+
+            //if not, set instance to this
+            Instance = this;
+
+        //If instance already exists and it's not this:
+        else if (Instance != this)
+
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+
+        //Sets this to not be destroyed when reloading scene
+        DontDestroyOnLoad(gameObject);
+    }
+	// Use this for initialization
+	void Start () {
+        OneBeat = 1f / ((float)BPM / 60f);
+        OneTick = OneBeat / 120f; // there are 120 ticks in a beat (arbitrary but chosen for optimal resolution in  4/4 time)
+
+       
         //Wait for player to press start And then start the song
         StartCoroutine(WaitForPlayerStart());
 

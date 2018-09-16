@@ -15,12 +15,21 @@ public class DifficultySelect : MonoBehaviour {
     {
         if(GameManager.Instance.PlayerCurrentGameState != GameManager.GameStates.WAITING_TO_START)
         {
-            Destroy(gameObject);
+            Destroy(gameObject,3f);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetDifficulty("StreamingAssets/song_hackathon_easy.xml");
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SetDifficulty("StreamingAssets/song_hackathon_medium.xml");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SetDifficulty("StreamingAssets/song_hackathon_high.xml");
         }
     }
 

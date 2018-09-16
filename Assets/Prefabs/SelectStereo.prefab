@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb735436ed783de4fa45df88373004b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: '"StreamingAssets/song_hackathon_hard.xml"'
+  path: StreamingAssets/song_hackathon_hard.xml
 --- !u!114 &114644103390471640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb735436ed783de4fa45df88373004b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: '"StreamingAssets/song_hackathon_medium.xml"'
+  path: StreamingAssets/song_hackathon_medium.xml
 --- !u!114 &114852387410194758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -856,4 +856,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb735436ed783de4fa45df88373004b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: '"StreamingAssets/song_hackathon.xml"'
+  path: StreamingAssets/song_hackathon_easy.xml

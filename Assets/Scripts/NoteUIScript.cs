@@ -49,8 +49,8 @@ public class NoteUIScript : MonoBehaviour {
         Tap.onTapped += OnTapped;
 
         errorThresholdTime = myNote.BeatError * GameManager.Instance.OneTick;
-        positiveErrorThresh = (myNote.NoteElapsedTime) + errorThresholdTime;
-        negativeErrorThresh = (myNote.NoteElapsedTime) - errorThresholdTime;
+        positiveErrorThresh = (myNote.NoteElapsedTime) + (errorThresholdTime*2);
+        negativeErrorThresh = (myNote.NoteElapsedTime) - (errorThresholdTime*2);
         //print(errorThresholdTime);
     }
 	

@@ -29,7 +29,7 @@ public class DifficultySelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SetDifficulty("StreamingAssets/song_hackathon_high.xml");
+            SetDifficulty("StreamingAssets/song_hackathon_hard.xml");
         }
     }
 

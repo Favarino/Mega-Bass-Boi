@@ -109,9 +109,10 @@ public class GameManager : MonoBehaviour {
                 {
                     Note n = levelSong.Measures[i].Notes[j];
 
-                    if (!n.IsInactive && n.NoteElapsedTime + (8f * OneBeat) +((float)n.BeatError * OneTick) < songElapsedTime)
+                    if (!n.IsInactive && n.NoteElapsedTime +((float)n.BeatError * OneTick) < songElapsedTime)
                     {
                         n.IsInactive = true;
+                        print("Setting inactive");
                         if(!n.hasBeenHit)
                         {
                             currentStreak = 0;

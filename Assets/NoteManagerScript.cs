@@ -42,9 +42,9 @@ public class NoteManagerScript : MonoBehaviour {
 
     float DetermineNoteYPosition(NoteUIScript note)
     {
-        float noteHeight = note.GetComponent<MeshRenderer>().bounds.size.y;
-        float localY = note.transform.localPosition.y - (noteHeight/2);
-        float y = localY - noteHeight * note.MyNote.id + .5f;//plus an offset
+        float noteHeight = note.GetComponent<MeshRenderer>().bounds.size.y * 8;
+        float localY = note.transform.localPosition.y;
+        float y = localY - (noteHeight * note.MyNote.id);
         return y;
     }
 	
@@ -56,6 +56,20 @@ public class NoteManagerScript : MonoBehaviour {
         {
             NoteUIScript nuis = t.GetComponent<NoteUIScript>();
             MoveNote(nuis, CueBarObject.transform.localPosition);
+            if (!t.GetComponent<MeshRenderer>().enabled && !nuis.MyNote.IsInactive)
+            {
+                if (Vector3.Distance(t.localPosition,RevealBarObject.transform.localPosition) < (measureDistance - (nuis.MyNote.BeatError * GameManager.Instance.OneTick))*2)
+                {
+                    t.GetComponent<MeshRenderer>().enabled = true;
+                }
+            }
+            else 
+            {
+                if (GameManager.Instance.SongElapsedTime > nuis.MyNote.NoteElapsedTime)
+                {
+                    t.GetComponent<MeshRenderer>().enabled = false;
+                }
+            }
         }
     }
 

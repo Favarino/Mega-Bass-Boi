@@ -74,7 +74,6 @@ public class NoteUIScript : MonoBehaviour {
         //        mats[i].color = Color.black;
         //    }
         //}
-
     }
 
     

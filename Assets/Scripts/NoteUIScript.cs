@@ -14,6 +14,8 @@ public class NoteUIScript : MonoBehaviour {
     float positiveErrorThresh;
     float negativeErrorThresh;
 
+    public ParticleSystem particle;
+
     public Note MyNote
     {
         get
@@ -139,6 +141,7 @@ public class NoteUIScript : MonoBehaviour {
     {
         print("gotnote");
         MyNote.hasBeenHit = true;
+        Instantiate(particle, transform.position, Quaternion.identity);
         GameManager.Instance.score += 10*GameManager.Instance.scoreMultiplier;
         GameManager.Instance.currentStreak++;
         GameManager.Instance.CheckForNewCombo();

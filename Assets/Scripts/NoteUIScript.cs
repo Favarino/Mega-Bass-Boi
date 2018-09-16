@@ -74,6 +74,10 @@ public class NoteUIScript : MonoBehaviour {
         //        mats[i].color = Color.black;
         //    }
         //}
+        if(MyNote.IsInactive)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     

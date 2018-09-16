@@ -34,7 +34,7 @@ public class NoteManagerScript : MonoBehaviour {
                 Note n = song.Measures[i].Notes[j];
                 NoteUIScript newNote = GameObject.Instantiate<NoteUIScript>(prefabNoteUI, NoteCollectionContainer.transform);
                 newNote.SetNote(n);
-                newNote.transform.localPosition = new Vector3(RevealBarObject.transform.localPosition.x + ((float)i * measureDistance)
+                newNote.transform.localPosition = new Vector3(CueBarObject.transform.localPosition.x + ((float)i * measureDistance)
                     + ((float)(n.BeatNumber - 1) * beatDistance) + (float)n.SubBeatNumber * tickDistance, DetermineNoteYPosition(newNote), transform.localPosition.z);  
             }
         }
@@ -66,7 +66,7 @@ public class NoteManagerScript : MonoBehaviour {
         //float t = (nuis.MyNote.NoteElapsedTime - elapsedTime) * .05f * measureDistance;
 
 
-        nuis.transform.localPosition = nuis.StartPosition - new Vector3((elapsedTime / GameManager.Instance.OneTick) * tickDistance, 0f, 0f);
+        nuis.transform.localPosition = nuis.StartPosition - new Vector3((elapsedTime / GameManager.Instance.OneTick) * tickDistance, 0f, 0f);  
     }
 
     // Update is called once per frame

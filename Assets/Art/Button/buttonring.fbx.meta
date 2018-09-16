@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9a10ae884dc29544b06d274eb81080c
+guid: 8fcc142a3daa8ec488deae99b29db13d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -12,7 +12,7 @@ ModelImporter:
     400004: Circle
     400006: Lamp
     2000000: Camera
-    2100000: Button Ring
+    2100000: Note button
     2300000: Circle
     3300000: Circle
     4300000: Circle

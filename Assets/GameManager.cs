@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour {
     public float OneBeat;
     public float OneTick;
 
+    public int score = 0;
+    public int scoreMultiplier = 1;
+
+    public int currentStreak;
+
     public float SongElapsedTime
     {
         get
@@ -107,7 +112,6 @@ public class GameManager : MonoBehaviour {
                     if (!n.IsInactive && n.NoteElapsedTime + (8f * OneBeat) +((float)n.BeatError * OneTick) < songElapsedTime)
                     {
                         n.IsInactive = true;
-                        Debug.Log("Note " + n.id + " of mesasure " + i + " was played");
                     }
                 }
             }
@@ -123,5 +127,26 @@ public class GameManager : MonoBehaviour {
     bool isPlaying()
     {
         return PlayerCurrentGameState == GameStates.PLAYING || PlayerCurrentGameState == GameStates.PLAYING_WITH_STYLE;
+    }
+
+    public void CheckForNewCombo()
+    {
+        switch (currentStreak)
+        {
+            case 0:
+                scoreMultiplier = 1;
+                break;
+            case 8:
+                scoreMultiplier = 2;
+                break;
+            case 16:
+                scoreMultiplier = 4;
+                break;
+            case 32:
+                scoreMultiplier = 8;
+                break;
+            default:
+                break;
+        }
     }
 }

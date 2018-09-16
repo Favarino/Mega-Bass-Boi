@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models/Characters/CrowdCharacter03.fbm.meta
 guid: 8b0b46c0ca3c43d459293c1413e71e2f
+=======
+guid: 6323a279637f8a44fbe5ed8d2ed85711
+>>>>>>> 41d2211aa3beef1fadf6f6c358a89c2574c5a796:Assets/Art/Textures.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

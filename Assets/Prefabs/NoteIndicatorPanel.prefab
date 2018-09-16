@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 23560378261823846}
   - component: {fileID: 64198632882777970}
   - component: {fileID: 114186250770465636}
+  - component: {fileID: 114851620048941318}
   m_Layer: 0
   m_Name: NoteIndicatorPanel
   m_TagString: Untagged
@@ -116,14 +117,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822479369074664}
-  m_LocalRotation: {x: -0.000000020034856, y: 0.8543873, z: -0.000000033973915, w: -0.51963675}
-  m_LocalPosition: {x: -2.8856485, y: 1.2599999, z: -0.6038952}
+  m_LocalRotation: {x: -0.47010058, y: -0.72164, z: 0.5072597, w: 0.030476533}
+  m_LocalPosition: {x: -3.0955937, y: 1.2550123, z: -1.2718003}
   m_LocalScale: {x: 1.875, y: 0.375, z: 1}
   m_Children:
   - {fileID: 4643910389641722}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -87.439, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.706, y: -132.86801, z: 86.50001}
 --- !u!4 &4591438783319386
 Transform:
   m_ObjectHideFlags: 1
@@ -160,8 +161,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849128766737026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.681, y: 0, z: 0.0177}
-  m_LocalScale: {x: 0.1, y: 2, z: 1}
+  m_LocalPosition: {x: -7.651, y: 0, z: 0.0177}
+  m_LocalScale: {x: 0.1595, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4643910389641722}
   m_RootOrder: 0
@@ -347,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothTime: 0.3
-  offset: {x: 0, y: 0, z: 1.5}
+  offset: {x: -0.5, y: 0, z: 2}
 --- !u!114 &114200590610858778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,3 +365,15 @@ MonoBehaviour:
     type: 2}
   CueBarObject: {fileID: 1849128766737026}
   RevealBarObject: {fileID: 1419534144112978}
+--- !u!114 &114851620048941318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822479369074664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59741229e710fde48a6c6b3979598c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0.02

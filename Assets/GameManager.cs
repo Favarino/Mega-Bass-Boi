@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour {
 
     public void SetScore(int value)
     {
-        score = value;
+        score = score+=value;
         scoreText.text = "Score:" + score;
     }
 

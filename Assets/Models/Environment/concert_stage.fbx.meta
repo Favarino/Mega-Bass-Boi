@@ -339,6 +339,7 @@ ModelImporter:
     100666: Strut3.001
     100668: Strut3.002
     100670: Strut3.003
+    100672: guitar_amp1
     400000: Body2
     400002: Body2.001
     400004: Body2.002
@@ -675,6 +676,7 @@ ModelImporter:
     400666: Strut3.001
     400668: Strut3.002
     400670: Strut3.003
+    400672: guitar_amp1
     2100000: No Name
     2100002: Black Metal
     2100004: Material.001
@@ -1031,6 +1033,7 @@ ModelImporter:
     2300664: Strut3.001
     2300666: Strut3.002
     2300668: Strut3.003
+    2300670: guitar_amp1
     3300000: Body2
     3300002: Body2.001
     3300004: Body2.002
@@ -1366,6 +1369,7 @@ ModelImporter:
     3300664: Strut3.001
     3300666: Strut3.002
     3300668: Strut3.003
+    3300670: guitar_amp1
     4300000: Circle.014
     4300002: Circle.013
     4300004: Cube.141
@@ -1478,7 +1482,88 @@ ModelImporter:
     4300218: Strut3
     4300220: Cube.113
     4300222: Cube.115
-  externalObjects: {}
+    4300224: guitar_amp1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: bf22af0e0def74e42b68843aeea0908c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Piano
+    second: {fileID: 2100000, guid: e354214f535667e45b5c444f4057f927, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker
+    second: {fileID: 2100000, guid: eac1c45982cdfbe49970b523ab520e33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: amp_black
+    second: {fileID: 2100000, guid: 1ae60ff27f557534ca184524747955c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: building
+    second: {fileID: 2100000, guid: 5ff280aaf32a5f34d9ac70f237ffd148, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buttons1
+    second: {fileID: 2100000, guid: 3c8a07dae8d75d944b53108a169b947e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dark plastic
+    second: {fileID: 2100000, guid: 58a285f63c8ce6445951a6b6d7c958ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inputs
+    second: {fileID: 2100000, guid: 8123dfb5997b1d34a840c988cbda4f0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knob_white
+    second: {fileID: 2100000, guid: db6a104e61f59d7409b518df95105b1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knobsblack
+    second: {fileID: 2100000, guid: d7c563e109858a54da47b71524d3c0bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: b4c382eba15134947ae00bdf6a73bd4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert4
+    second: {fileID: 2100000, guid: aa593d6a6de3de642a52563ad6fcd428, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light
+    second: {fileID: 2100000, guid: 5c836ad69a82eab4fb481dcb17de68a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light.003
+    second: {fileID: 2100000, guid: dc78ba4510481d1458db368cc2046e5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: cf4a1deb53ea23e458c4f35fd3632f19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: silver
+    second: {fileID: 2100000, guid: 3b9e4e89d600fb149ad4e69c92f3e40a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

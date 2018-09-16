@@ -692,6 +692,10 @@ ModelImporter:
     2100028: keys.001
     2100030: keys
     2100032: bolt
+    2100034: Speaker
+    2100036: dark plastic
+    2100038: metal
+    2100040: building
     2300000: Body2
     2300002: Body2.001
     2300004: Body2.002
@@ -1472,12 +1476,14 @@ ModelImporter:
     4300214: Strut
     4300216: Strut2
     4300218: Strut3
+    4300220: Cube.113
+    4300222: Cube.115
   externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

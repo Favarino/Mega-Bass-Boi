@@ -15,6 +15,8 @@ public class Note
     public float NoteElapsedTime;
     public bool IsInactive;
 
+    public bool hasBeenHit = false;
+
     public void ConvertNoteTime(int measure)
     {
         NoteElapsedTime = (float)measure * GameManager.Instance.OneBeat * 4f;

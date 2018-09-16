@@ -19,20 +19,22 @@ public class BassGuitar : MonoBehaviour {
     private GameObject bassGuitar;
     private GameObject bassGuitarPrefab;
 
+    public XRNode playerNode = XRNode.LeftHand;
+
     public void Start() {
         bassGuitar = GameObject.Find("Bass");
-        bassGuitarPrefab = GameObject.Find("BassGuitarPrefab");
+        bassGuitarPrefab = bassGuitar.transform.GetChild(0).gameObject;
 
-        bassGuitarPrefab.transform.position = bassPivotPosition;
-        bassGuitarPrefab.transform.rotation = Quaternion.Euler(bassPivotRotation);
-        bassGuitarPrefab.transform.localScale = bassScale;
+       // bassGuitarPrefab.transform.position = bassPivotPosition;
+       // bassGuitarPrefab.transform.rotation = Quaternion.Euler(bassPivotRotation);
+       // bassGuitarPrefab.transform.localScale = bassScale;
     }
 
     public void Update() {
 
         // Bass neck tracking left controller
-        bassGuitar.transform.position = InputTracking.GetLocalPosition(XRNode.LeftHand);
-        bassGuitar.transform.rotation = InputTracking.GetLocalRotation(XRNode.LeftHand);
+        bassGuitar.transform.position = InputTracking.GetLocalPosition(playerNode);
+        bassGuitar.transform.rotation = InputTracking.GetLocalRotation(playerNode);
     }
 
 }

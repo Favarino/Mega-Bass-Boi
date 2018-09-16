@@ -137,6 +137,7 @@ public class NoteUIScript : MonoBehaviour {
     //Spawn Particles and such
     void OnTappedTheatrics()
     {
+        print("gotnote");
         MyNote.hasBeenHit = true;
         GameManager.Instance.score += 10*GameManager.Instance.scoreMultiplier;
         GameManager.Instance.currentStreak++;

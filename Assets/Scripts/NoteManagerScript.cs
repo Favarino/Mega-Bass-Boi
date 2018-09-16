@@ -29,13 +29,16 @@ public class NoteManagerScript : MonoBehaviour {
 
         for (int i = 0; i < song.Measures.Length; i++)
         {
-            for (int j = 0; j < song.Measures[i].Notes.Length; j++)
+            if (song.Measures[i].Notes != null)
             {
-                Note n = song.Measures[i].Notes[j];
-                NoteUIScript newNote = GameObject.Instantiate<NoteUIScript>(prefabNoteUI, NoteCollectionContainer.transform);
-                newNote.SetNote(n);
-                newNote.transform.localPosition = new Vector3(CueBarObject.transform.localPosition.x + ((float)i * measureDistance)
-                    + ((float)(n.BeatNumber - 1) * beatDistance) + (float)n.SubBeatNumber * tickDistance, DetermineNoteYPosition(newNote), transform.localPosition.z);  
+                for (int j = 0; j < song.Measures[i].Notes.Length; j++)
+                {
+                    Note n = song.Measures[i].Notes[j];
+                    NoteUIScript newNote = GameObject.Instantiate<NoteUIScript>(prefabNoteUI, NoteCollectionContainer.transform);
+                    newNote.SetNote(n);
+                    newNote.transform.localPosition = new Vector3(CueBarObject.transform.localPosition.x + ((float)i * measureDistance)
+                        + ((float)(n.BeatNumber - 1) * beatDistance) + (float)n.SubBeatNumber * tickDistance, DetermineNoteYPosition(newNote), transform.localPosition.z);
+                }
             }
         }
     }
@@ -58,18 +61,12 @@ public class NoteManagerScript : MonoBehaviour {
             MoveNote(nuis, CueBarObject.transform.localPosition);
             if (!t.GetComponent<MeshRenderer>().enabled && !nuis.MyNote.IsInactive)
             {
-                if (Vector3.Distance(t.localPosition,RevealBarObject.transform.localPosition) < (measureDistance - (nuis.MyNote.BeatError * GameManager.Instance.OneTick))*2)
+                if(t.localPosition.x < RevealBarObject.transform.localPosition.x)
                 {
                     t.GetComponent<MeshRenderer>().enabled = true;
-                }
-            }
-            else 
-            {
-                if (GameManager.Instance.SongElapsedTime > nuis.MyNote.NoteElapsedTime)
-                {
-                    t.GetComponent<MeshRenderer>().enabled = false;
-                }
-            }
+                    t.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+                }             
+            }          
         }
     }
 

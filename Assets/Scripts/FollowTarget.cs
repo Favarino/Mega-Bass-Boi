@@ -16,6 +16,6 @@ public class FollowTarget : MonoBehaviour {
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         transform.LookAt(target);
-        transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z+90));
+        transform.Rotate(new Vector3(transform.rotation.x + 44, transform.rotation.y + 180, transform.rotation.z+86));
 	}
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour {
     private SongNoteCollection levelSong;
     private float songStartTime;
 
-    private float songElapsedTime;
+    public float songElapsedTime;
 
     public enum GameStates
     {
@@ -38,10 +39,13 @@ public class GameManager : MonoBehaviour {
 
     public int currentStreak;
 
+    public AudioSource audioSource;
+
+    [SerializeField] TextMeshProUGUI scoreText;
+
     public float SongElapsedTime
     {
-        get
-        {
+        get {
             return songElapsedTime;
         }
 
@@ -49,6 +53,12 @@ public class GameManager : MonoBehaviour {
         {
             songElapsedTime = value;
         }
+    }
+
+    public void SetScore(int value)
+    {
+        score = value;
+        scoreText.text = "Score:" + score;
     }
 
     void Awake()
@@ -61,15 +71,18 @@ public class GameManager : MonoBehaviour {
         OneBeat = 1f / ((float)BPM / 60f);
         OneTick = OneBeat / 120f; // there are 120 ticks in a beat (arbitrary but chosen for optimal resolution in  4/4 time)
 
-        levelSong = SongNoteCollection.Load(Path.Combine(Application.dataPath, "StreamingAssets/song_hackathon.xml"));
+        levelSong = SongNoteCollection.Load(Path.Combine(Application.dataPath, "StreamingAssets/song_hackathon_hard.xml"));
 
 
         for(int i = 0; i < levelSong.Measures.Length; i++)
         {
-            for(int j = 0; j < levelSong.Measures[i].Notes.Length; j++)
+            if (levelSong.Measures[i].Notes != null)
             {
-                Note n = levelSong.Measures[i].Notes[j];
-                n.ConvertNoteTime(i);
+                for (int j = 0; j < levelSong.Measures[i].Notes.Length; j++)
+                {
+                    Note n = levelSong.Measures[i].Notes[j];
+                    n.ConvertNoteTime(i);
+                }
             }
         }
 
@@ -77,6 +90,9 @@ public class GameManager : MonoBehaviour {
         NoteManager.PopulateNotes();
         //Wait for player to press start And then start the song
         StartCoroutine(WaitForPlayerStart());
+
+        // Subscripe to Pose Hit
+        Poses.PoseHit += poseHit;
     }
 	
     IEnumerator WaitForPlayerStart()
@@ -98,6 +114,7 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             PlayerCurrentGameState = GameStates.PLAYING;
+            audioSource.Play();
         }
         if(isPlaying())
         {
@@ -105,17 +122,19 @@ public class GameManager : MonoBehaviour {
             NoteManager.MoveNotes();
             for (int i = 0; i < levelSong.Measures.Length; i++)
             {
-                for (int j = 0; j < levelSong.Measures[i].Notes.Length; j++)
+                if (levelSong.Measures[i].Notes != null)
                 {
-                    Note n = levelSong.Measures[i].Notes[j];
-
-                    if (!n.IsInactive && n.NoteElapsedTime +((float)n.BeatError * OneTick) < songElapsedTime)
+                    for (int j = 0; j < levelSong.Measures[i].Notes.Length; j++)
                     {
-                        n.IsInactive = true;
-                        print("Setting inactive");
-                        if(!n.hasBeenHit)
+                        Note n = levelSong.Measures[i].Notes[j];
+
+                        if (!n.IsInactive && n.NoteElapsedTime + ((float)n.BeatError * OneTick) < songElapsedTime)
                         {
-                            currentStreak = 0;
+                            n.IsInactive = true;
+                            if (!n.hasBeenHit)
+                            {
+                                currentStreak = 0;
+                            }
                         }
                     }
                 }
@@ -153,5 +172,9 @@ public class GameManager : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    public void poseHit() {
+        Debug.Log("Hit Pose");
     }
 }
